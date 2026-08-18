@@ -1,0 +1,113 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Overview — Content Academy — Mino Lee</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--panel:#f8fafc;--bg:#eef0f3;
+ --accent:#4f46e5;--good:#059669;--warn:#ea580c;--bad:#9f1239}
+@media(prefers-color-scheme:dark){:root{--ink:#e8eaed;--muted:#9aa3b2;--line:#2a3140;
+ --panel:#151a23;--bg:#0d1117;--accent:#818cf8}}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;
+ -webkit-font-smoothing:antialiased;line-height:1.55}
+h1,h2,h3,h4{font-weight:600;letter-spacing:-.02em}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+header.top{background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.topin{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:26px;height:60px}
+.brand{font-size:15px;font-weight:600;white-space:nowrap}
+.brand span{color:var(--muted);font-weight:400}
+nav.main{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none}
+nav.main::-webkit-scrollbar{display:none}
+nav.main a{font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap;
+ padding:6px 0;border-bottom:2px solid transparent}
+nav.main a:hover{color:var(--ink)}
+nav.main a.on{color:var(--ink);border-bottom-color:var(--accent)}
+.hero{padding:48px 0 26px}
+.kick{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.hero h1{font-size:40px;margin-bottom:14px;line-height:1.15}
+.hero p{font-size:17px;color:var(--muted);max-width:820px}
+section{padding:26px 0}
+h2.sec{font-size:22px;margin-bottom:16px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g4{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.card h3{font-size:15px;margin-bottom:7px}
+.card p{font-size:14px;color:var(--muted)}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.stat .n{font-size:26px;font-weight:600;letter-spacing:-.03em}
+.stat .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:3px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:none}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;
+ border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.good{color:var(--good);border-color:var(--good)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+.tag.bad{color:var(--bad);border-color:var(--bad)}
+figure{background:var(--panel);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+figure img{width:100%;display:block;background:#000;cursor:zoom-in}
+figcaption{padding:8px 10px;font-size:12px;color:var(--muted);border-top:1px solid var(--line)}
+figcaption b{color:var(--ink);font-weight:600}
+details{background:var(--panel);border:1px solid var(--line);border-radius:9px;margin-bottom:9px}
+summary{padding:12px 15px;cursor:pointer;font-size:14px;font-weight:500;list-style:none;
+ display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+summary::-webkit-details-marker{display:none}
+summary .meta{font-size:12px;color:var(--muted);font-weight:400;white-space:nowrap}
+details .body{padding:0 15px 15px;font-size:14.5px;line-height:1.72;color:var(--ink)}
+details .body p{margin-bottom:12px}
+.ts{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums;font-size:12.5px}
+.searchbar{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:9px;
+ background:var(--panel);color:var(--ink);font-size:14.5px;margin-bottom:14px;font-family:inherit}
+.note{border-left:3px solid var(--accent);padding:11px 15px;background:var(--panel);
+ border-radius:0 9px 9px 0;font-size:14px;margin-bottom:13px}
+.note.warn{border-left-color:var(--warn)}
+footer{padding:36px 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:34px}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.93);display:none;align-items:center;
+ justify-content:center;z-index:99;cursor:zoom-out;padding:20px}
+#lb img{max-width:100%;max-height:92vh;object-fit:contain}
+#lb .cap{position:fixed;bottom:14px;left:0;right:0;text-align:center;color:#cbd5e1;font-size:13px;padding:0 20px}
+</style></head><body>
+<header class="top"><div class="topin">
+<div class="brand">Mino Lee Content Academy <span>swipe</span></div>
+<nav class="main"><a href="index.html" class="on">Overview</a><a href="analysis.html" class="">Analysis</a><a href="pages.html" class="">Funnel pages</a><a href="transcripts.html" class="">Transcripts</a><a href="videos.html" class="">Video library</a><a href="copybank.html" class="">Copy bank</a></nav></div></header>
+<div class="wrap">
+<div class="hero"><div class="kick">Competitor swipe · captured 6 August 2026</div>
+<h1>Content Academy — Mino Lee</h1><p>A free live class where <b>registration is not the conversion event</b>. The thank-you page is. A five-question survey disguised as &ldquo;unlock your free AI tool&rdquo; sorts every registrant on income and urgency <i>before the class has happened</i>, auto-redirects the buyers to a booking page, and sells everyone else a <b>$20&ndash;$247/month SaaS</b>. The routing rule was read out of their JavaScript, not guessed. Vertical is personal-brand growth (0 &rarr; 10K followers), not UGC-for-brands.</p></div>
+<section><div class="grid g4"><div class="stat"><div class="n">never stated</div><div class="l">Program price</div></div><div class="stat"><div class="n">$20 / $97 / $247 mo</div><div class="l">SaaS ladder</div></div><div class="stat"><div class="n">5</div><div class="l">Survey questions</div></div><div class="stat"><div class="n">2</div><div class="l">Questions that route</div></div><div class="stat"><div class="n">9m 51s</div><div class="l">VSL</div></div><div class="stat"><div class="n">9</div><div class="l">Funnel steps captured</div></div><div class="stat"><div class="n">not seen</div><div class="l">Class itself</div></div><div class="stat"><div class="n">6 Aug 2026</div><div class="l">Captured</div></div></div></section>
+<section><h2 class="sec">The offer</h2><div class="tablewrap"><table><tr><th>Product</th><td>Content Academy &mdash; paid community for short-form creators</td></tr><tr><th>Face / operator</th><td>Mino Lee (@mino1ee, @minolee.mp4) &mdash; solo founder, no agency behind him that the capture can find</td></tr><tr><th>Big idea</th><td>&ldquo;How to Build a Full-Time Creator Career in just 1 hour/day&rdquo;</td></tr><tr><th>Class promise</th><td>&ldquo;Your First 10,000 True Fans In 90 Days&rdquo;</td></tr><tr><th>ICP</th><td>beginners and 9-to-5ers with <b>0&ndash;10K followers</b> &mdash; but the survey only lets through people already earning <b>$1K+/month</b></td></tr><tr><th>Mechanism</th><td>A 4-stage roadmap: post your first video &rarr; make it a habit &rarr; micro-optimisation (hook, script, edit, tonality) &rarr; monetise</td></tr><tr><th>Core reframe</th><td>&ldquo;Content is a <b>skill</b> you train&rdquo; &mdash; not a lottery, not an algorithm hack. He tells you to expect zero growth on your first 30 videos.</td></tr><tr><th>Entry</th><td>Free class. First name, last name, email and <b>phone &mdash; all required</b></td></tr><tr><th>Front-end</th><td><b>ContentHooks</b> SaaS at $20 / $97 / $247 per month, sold to the people who fail the qualification survey</td></tr><tr><th>Price</th><td><b>never stated anywhere</b> &mdash; not on a page, not in the VSL, not on their Whop. Revealed on the call only.</td></tr><tr><th>Guarantee</th><td><span class="tag warn">not observed</span> &mdash; no guarantee appears on any pre-call asset</td></tr><tr><th>Backend</th><td>iClosed &ldquo;Content Academy Demo Call&rdquo; &rarr; Whop community (30,820 joined, 4.9 from 153 reviews)</td></tr><tr><th>Class cadence</th><td>Fixed weekly slot, Thursday 6:00 PM ET. Countdown resolves to a <b>real</b> datetime, not an evergreen rolling timer.</td></tr></table></div></section>
+<section><h2 class="sec">What matters</h2><div class="grid g2"><div class="card"><h3>The thank-you page is the conversion event, not the opt-in</h3><p>There is no confirmation message, no calendar link, no &ldquo;check your email&rdquo; reassurance. The page says <i>&ldquo;URGENT! Friend, your spot is almost saved&hellip;&rdquo;</i> with a progress bar at <b>67%</b> and exactly one button. They manufacture an incomplete-task feeling on a task that was already complete, and spend it on getting the survey filled. Meta's <code>CompleteRegistration</code> fires here, not on the form.</p></div><div class="card"><h3>The qualification rule is money x urgency, and it is sitting in public JavaScript</h3><p>From <code>survey/page-bf93c16709583769.js</code>: you get the call if <b>(priority = &ldquo;all-in ASAP&rdquo; OR &ldquo;top 3&rdquo;) AND income &ge; $5K/mo</b>, or if <b>income $1K&ndash;$5K AND priority = all-in</b>. Everything else redirects to <code>/ai</code>. <b>Someone earning $0&ndash;$1K/month never reaches a call, no matter how motivated they say they are.</b> Confirmed live: answering 0&ndash;1K followers / all-in / student / $0&ndash;1K bounced straight to the SaaS page.</p></div><div class="card"><h3>Three of the five survey questions do not affect routing at all</h3><p>Follower count, &ldquo;what are you looking for help with&rdquo; and &ldquo;what best describes you&rdquo; are collected and fired to PostHog, but the branch expression only reads <code>priority</code> and <code>income</code>. The other three are closer prep and audience-building data. Worth noticing: they ask the <b>flattering</b> questions first and the money question last, after proof.</p></div><div class="card"><h3>Proof is injected mid-survey, immediately before the income question</h3><p>Between question two and question three the survey stops and shows three income screenshots &mdash; <b>Alfonso $14,000 in one month at 172 followers</b>, <b>Richard Lin $17,000 in one month</b>, <b>Thomas Tran $40,000+ in one month</b>. Then it asks what you currently earn. They anchor the number before they measure it.</p></div><div class="card"><h3>The consolation prize is a checkout</h3><p>The registration page promises &ldquo;free access to our Viral Hooks Writer &mdash; <b>$97 FREE</b>&rdquo; as a show-up bonus. Fail the survey and you land on <code>/ai</code>, which is a three-tier subscription page: <b>$20, $97 and $247 per month</b>. The people who cannot afford the program become recurring revenue instead of a nurture sequence.</p></div><div class="card"><h3>Two funnels, one subdomain, one pixel - and they say so in their own code</h3><p>The source comment reads: <i>&ldquo;Pixel 829859546688723 &mdash; same pixel contentmba-web uses, one pixel across both funnels.&rdquo;</i> <code>start.contentacademy.io/class</code> is the class funnel; <code>start.contentacademy.io/</code> is a direct book-a-call page. The qualified thank-you page (<code>/class/call</code>) is <b>byte-identical</b> to the root page &mdash; one asset, two entry points.</p></div><div class="card"><h3>The countdown is real, and so is the no-replay policy</h3><p>The FAQ states: <i>&ldquo;There will be NO replays, so try your best to make it &mdash; we'll be giving away bonus free tools/assets for everyone who watches live.&rdquo;</i> The timer resolves to a genuine fixed datetime (Thu 6:00 PM ET) rather than a rolling evergreen clock. Most competitors in this swipe file fake this. He does not.</p></div><div class="card"><h3>Their proof is screenshots with dates on them, not typed claims</h3><p>The registration page carries a <b>Whop revenue screenshot</b> labelled <i>&ldquo;WHOP &middot; JAN 1&ndash;31, 2025 &middot; GROSS $101,698.55&rdquo;</i>, four account cards with follower counts (525K / 280K / 180K / 900K), and an aggregate &ldquo;2.6 BILLION VIEWS&rdquo; counter. Platform-named, date-stamped, exact to the cent. That is a harder proof format than a testimonial quote.</p></div><div class="card"><h3>The VSL is a free download and it contains the whole pitch</h3><p>9m 51s, Wistia <code>g3is6j1p25</code>, exposed at 4K and 1080p with no token. Pulled with one <code>curl</code>. It names the mechanism, the four stages, five named students, the coach roster, and closes on &ldquo;book a demo call below&rdquo; &mdash; without ever naming a price.</p></div><div class="card"><h3>The offer is a community with named coaches, not a course</h3><p>The VSL sells three coaches by name and by number: <b>Gabe</b> (monetisation, 0 &rarr; $100K/mo agency in a year), <b>Prosper</b> (3,000 &rarr; 370,000 followers in a year), <b>Sam</b> (1,000 &rarr; 100,000 followers in 30 days, trains UGC creators). The differentiator he leans on is live weekly calls with people who have done it, not recorded modules.</p></div><div class="card"><h3>Numbers do not reconcile across their own assets</h3><p><span class="tag warn">CAUTION</span> The registration page says <b>&ldquo;over 60 students&rdquo;</b> reached 10K. The VSL says he has <b>&ldquo;coached over 1,500 creators&rdquo;</b>. The ContentHooks page says <b>&ldquo;trusted by 10,000+ members&rdquo;</b> and Whop says <b>30,820 joined</b>. The follower figures also drift &mdash; the class page lists 525K/280K/180K/900K, the ContentHooks page lists 520K/280K/150K/900K for the same four accounts. Do not repeat any single one of these as a fact about their business.</p></div><div class="card"><h3>No ad-library coverage</h3><p><span class="tag warn">GAP</span> Meta Ad Library returns 403 to this environment and gethookd has no brand record, so creative volume, spend and survival rate are unmeasured. The only paid-traffic evidence is the <code>?el=ad</code> parameter on the URL Will was served, plus three confirmed trackers.</p></div><div class="card"><h3>The class itself was never seen, and could not be</h3><p><span class="tag bad">HARD LIMIT</span> The opt-in modal requires a <b>phone number</b>. No research phone number exists, and fabricating one routes a real sales call to a real stranger. So the opt-in was never submitted. The live room, the deck, the pitch, the price, the email sequence and the SMS sequence are all unobserved. Everything on this site is <b>pre-registration evidence only</b>.</p></div></div></section>
+<section><h2 class="sec">Funnel path</h2><div class="tablewrap"><table>
+<tr><th>#</th><th>Step</th><th>URL</th><th>Note</th></tr><tr><td><b>1</b></td><td>Class registration</td><td><code>start.contentacademy.io/class?el=ad</code></td><td>Countdown to a real fixed datetime. Modal opt-in: first, last, email, <b>phone (required)</b>. Placeholder names are &ldquo;Alex&rdquo; / &ldquo;Hormozi&rdquo;.</td></tr><tr><td><b>2</b></td><td>Thank-you</td><td><code>start.contentacademy.io/class/thank-you</code></td><td>No confirmation, no calendar link. 67% progress bar, &ldquo;URGENT!&rdquo;, one CTA. <code>CompleteRegistration</code> fires here.</td></tr><tr><td><b>3</b></td><td>Survey (the real application)</td><td><code>start.contentacademy.io/class/survey</code></td><td>5 questions. Only <b>priority</b> and <b>income</b> route. Testimonial interstitial between Q2 and Q3.</td></tr><tr><td><b>4</b></td><td>QUALIFIED &rarr; call page</td><td><code>start.contentacademy.io/class/call</code></td><td><span class="tag good">auto-redirect, 1.4s</span> 9 video testimonials, iClosed widget, no price</td></tr><tr><td><b>5</b></td><td>UNQUALIFIED &rarr; SaaS</td><td><code>start.contentacademy.io/ai</code></td><td><span class="tag bad">the &ldquo;free gift&rdquo; is a checkout</span> $20 / $97 / $247 per month, three tiers</td></tr><tr><td><b>6</b></td><td>Direct call page (cold)</td><td><code>start.contentacademy.io/</code></td><td>Byte-identical to <code>/class/call</code>. Carries the 9m51s Wistia VSL.</td></tr><tr><td><b>7</b></td><td>Free hook library</td><td><code>start.contentacademy.io/ai/hook-library</code></td><td>Ungated utility page, copy-to-clipboard hooks. Top of the ContentHooks funnel.</td></tr><tr><td><b>8</b></td><td>Brand site</td><td><code>contentacademy.io</code></td><td>Framer build. 31:08 YouTube VSL, Whop link, 40+ reviews at 4.98.</td></tr><tr><td><b>9</b></td><td>Booking</td><td><code>app.iclosed.io/e/contentacademy/content-academy-demo-call</code></td><td><span class="tag warn">not submitted</span> &mdash; &ldquo;Content Academy Demo Call&rdquo;, email + name. Stripe and Hotjar load on the widget.</td></tr></table></div></section>
+<footer>Captured 6 August 2026. Evidence in <code>~/UNDERGROUND_FUNNELS_SSOT</code>
+and <code>~/Downloads/MINO_LEE_Swipe</code>. Built with the <code>/swipe</code> skill.<br>
+Competitor research. Not for redistribution.</footer></div>
+<div id="lb"><img alt=""><div class="cap"></div></div>
+<script>
+document.addEventListener('click',function(e){
+  if(e.target.tagName==='IMG'&&e.target.closest('figure')){
+    var lb=document.getElementById('lb');
+    lb.querySelector('img').src=e.target.dataset.full||e.target.src;
+    var fc=e.target.closest('figure').querySelector('figcaption');
+    lb.querySelector('.cap').textContent=fc?fc.textContent.trim():'';
+    lb.style.display='flex';
+  } else if(e.target.closest('#lb')){document.getElementById('lb').style.display='none';}
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')document.getElementById('lb').style.display='none';
+});
+function wireSearch(id,sel){
+  var b=document.getElementById(id); if(!b)return;
+  b.addEventListener('input',function(){
+    var q=b.value.toLowerCase();
+    document.querySelectorAll(sel).forEach(function(el){
+      el.style.display = !q || el.textContent.toLowerCase().indexOf(q)>-1 ? '' : 'none';
+    });
+  });
+}
+wireSearch('tsearch','details.tr');
+wireSearch('ssearch','figure.sl');
+</script></body></html>

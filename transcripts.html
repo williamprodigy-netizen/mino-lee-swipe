@@ -1,0 +1,110 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Transcripts — Content Academy — Mino Lee</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--panel:#f8fafc;--bg:#eef0f3;
+ --accent:#4f46e5;--good:#059669;--warn:#ea580c;--bad:#9f1239}
+@media(prefers-color-scheme:dark){:root{--ink:#e8eaed;--muted:#9aa3b2;--line:#2a3140;
+ --panel:#151a23;--bg:#0d1117;--accent:#818cf8}}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;
+ -webkit-font-smoothing:antialiased;line-height:1.55}
+h1,h2,h3,h4{font-weight:600;letter-spacing:-.02em}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+header.top{background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.topin{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:26px;height:60px}
+.brand{font-size:15px;font-weight:600;white-space:nowrap}
+.brand span{color:var(--muted);font-weight:400}
+nav.main{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none}
+nav.main::-webkit-scrollbar{display:none}
+nav.main a{font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap;
+ padding:6px 0;border-bottom:2px solid transparent}
+nav.main a:hover{color:var(--ink)}
+nav.main a.on{color:var(--ink);border-bottom-color:var(--accent)}
+.hero{padding:48px 0 26px}
+.kick{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.hero h1{font-size:40px;margin-bottom:14px;line-height:1.15}
+.hero p{font-size:17px;color:var(--muted);max-width:820px}
+section{padding:26px 0}
+h2.sec{font-size:22px;margin-bottom:16px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g4{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.card h3{font-size:15px;margin-bottom:7px}
+.card p{font-size:14px;color:var(--muted)}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.stat .n{font-size:26px;font-weight:600;letter-spacing:-.03em}
+.stat .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:3px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:none}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;
+ border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.good{color:var(--good);border-color:var(--good)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+.tag.bad{color:var(--bad);border-color:var(--bad)}
+figure{background:var(--panel);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+figure img{width:100%;display:block;background:#000;cursor:zoom-in}
+figcaption{padding:8px 10px;font-size:12px;color:var(--muted);border-top:1px solid var(--line)}
+figcaption b{color:var(--ink);font-weight:600}
+details{background:var(--panel);border:1px solid var(--line);border-radius:9px;margin-bottom:9px}
+summary{padding:12px 15px;cursor:pointer;font-size:14px;font-weight:500;list-style:none;
+ display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+summary::-webkit-details-marker{display:none}
+summary .meta{font-size:12px;color:var(--muted);font-weight:400;white-space:nowrap}
+details .body{padding:0 15px 15px;font-size:14.5px;line-height:1.72;color:var(--ink)}
+details .body p{margin-bottom:12px}
+.ts{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums;font-size:12.5px}
+.searchbar{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:9px;
+ background:var(--panel);color:var(--ink);font-size:14.5px;margin-bottom:14px;font-family:inherit}
+.note{border-left:3px solid var(--accent);padding:11px 15px;background:var(--panel);
+ border-radius:0 9px 9px 0;font-size:14px;margin-bottom:13px}
+.note.warn{border-left-color:var(--warn)}
+footer{padding:36px 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:34px}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.93);display:none;align-items:center;
+ justify-content:center;z-index:99;cursor:zoom-out;padding:20px}
+#lb img{max-width:100%;max-height:92vh;object-fit:contain}
+#lb .cap{position:fixed;bottom:14px;left:0;right:0;text-align:center;color:#cbd5e1;font-size:13px;padding:0 20px}
+</style></head><body>
+<header class="top"><div class="topin">
+<div class="brand">Mino Lee Content Academy <span>swipe</span></div>
+<nav class="main"><a href="index.html" class="">Overview</a><a href="analysis.html" class="">Analysis</a><a href="pages.html" class="">Funnel pages</a><a href="transcripts.html" class="on">Transcripts</a><a href="videos.html" class="">Video library</a><a href="copybank.html" class="">Copy bank</a></nav></div></header>
+<div class="wrap">
+<div class="hero"><div class="kick">Verbatim</div><h1>Transcripts</h1>
+<p>Every word, timestamped. Search filters across all of them at once.</p></div>
+<section><input id="tsearch" class="searchbar" placeholder="Search every transcript…">
+<h2 class="sec">VSL — how to go from 0 to 10K followers (4 steps), 9m 51s</h2><details class="tr"><summary>Mino Lee - How to go from 0 to 10K followers (4 steps) [VSL]<span class="meta">00:09:51 · 2,108 words</span></summary><div class="body"><p><span class="ts">[00:00:00]</span> These are the four stages you will go through starting off as a beginner to content creation to eventually becoming monetized and making content creation your full-time income. And the reason why I know this is because in January 1st of 2024, I was stuck at 50K followers making just 500 months a month. And I was a 20 year old college student, but I tested this one thesis. If I just posted once every single day and followed this four step formula, what would happen? And after 20 months, I grew from 50,410,000 followers on Instagram. My coaching business in the past 20 months has gone from zero to $760,000 made, and I&#x27;ve been able to charge five figures for brand deals that are posted onto my Instagram page. And this growth process has been proven to work in all of the following niches, real estate, guitar, rock climbing, high school, UGC, self-growth, founder, building and public relationships, Amazon FBA travel, software engineering, golfing, tech, productivity, SMMA, make money online, Christianity University.</p><p><span class="ts">[00:00:52]</span> And the reason why I know this is because I&#x27;ve coached over 1,500 creators now in the past 20 months. I&#x27;m not saying this to brag. Okay. I&#x27;m lowkey kind of fucking bragging here. I&#x27;m genuinely saying this because this will be the complete roadmap, the four step roadmap to go from an absolute beginner to hitting 10K followers and monetizing with your content. It&#x27;s the same roadmap that people that I&#x27;ve worked with like Henry, who is a literal 17 year old pause posted his first video in April of 2025. And in just 32 days and 27 posts, he had 10K followers and he made his first dollar with content creation. And if you&#x27;re curious about the program that all of these people have gone through and Henry to go from zero to 10K followers and start monetizing with their own content, this is my private community content Academy. And if you&#x27;re interested in joining just a book, a demo call right down below.</p><p><span class="ts">[00:01:39]</span> Anyways, step one, when you are starting out with content creation is simply to post your first video because you need to try different formats and see what you enjoy with content creation. And you should expect zero growth. I know a lot of people came onto this video thinking that, okay, what&#x27;s the, like the biggest hack so I can 2x my content growth instantly overnight. And what you have to understand is when you&#x27;re posting your first 30 videos, the most important thing is consistency. And you need to find a community of people who actually keep you accountable to posting consistently because I&#x27;ve seen so many people who ask me, yo, Mina, how do I get into content creation? How do I start? How do I start making money? But then they quit after like three days, two days of posting, or they never even post their first video. Another reason why these people never actually end up posting and how to prevent yourself from becoming one of them is understanding your why. Ask yourself really right now, why do you actually want to get into content creation?</p><p><span class="ts">[00:02:27]</span> Why do you want to build a personal brand? And the reason why I believe that so many people should start creating content is because learning the skill of content creation is the best skill you can learn in 2025. Even if you were just learning it part-time, so many people that I have worked with came in as literal college students who had maybe like two, three hours a day of spare time, and they were able to turn those two, three hours of spare time, learn, focus on their content creation after 60 to 90 days, land jobs from content creation, or even get paid 10 K a month from brands to make videos for them. This skill of content creation is literally the most high value skill that you can learn in 2025. And if you can just simply learn it, it will pay you dividends literally in six months, but we&#x27;ll talk about the monetization in a second because your number one thing that you need to focus on right now, if you&#x27;re in the first stage of posting your first video is think of content like a skill that you&#x27;re actually going to train and build up.</p><p><span class="ts">[00:03:20]</span> But once you actually get into the groove of posting content, you&#x27;ve posted your first video online, which props you if you have, that&#x27;s genuinely very difficult to do because you have to fight against all the judgment of all your peers who are going to be looking at your content and thinking that you&#x27;re fucking cringe and weird for doing it. Step two is to make it a habit. And the way that you can level up in this is learning the basics of scripting, filming and editing by posting consistently. And once you have gotten to this groove of posting consistently, you can find the one to two videos that actually get over like 10 K views, which is actually much easier to do than you think. I know that it seems like a huge number, but Jojo, after posting 67 days in a row, he got his first hundred K view video on his Instagram. And then literally in the span of about two weeks, he turned his first hundred K view video into 300 K view videos.</p><p><span class="ts">[00:04:09]</span> But the most important thing is just posting your first 30 videos during this period and making it a daily habit because odds are, if you&#x27;re not making a daily habit, then you&#x27;re probably not going to excel at this skill set of content creation. Then step three, after you&#x27;ve made it a habit and you&#x27;ve posted your first 30 videos consistently is something I like to call micro optimization. And by the end, you should be able to master content creation and hit 10,000 followers by day 60 through 90. I see this as a pattern with all the creators in my community that I work with. Once you double down on the videos that are actually doing slightly better than the others, right? While making your videos 1% better every single day, you focus on the editing trimming dead space. You focus on the scripting, removing redundant sentences. You focus on the hook. Does your hook, your first three seconds of your video pattern interrupt?</p><p><span class="ts">[00:04:57]</span> Is it unique in any sort of way? Does it use specific words that trigger viewers emotions? What do your visuals subconsciously communicate? And does your tonality, the way you speak on camera show emotion or authenticity, or are you just reading off of a script kind of dead inside? And once you focus on improving all of these skill sets for 60 to 90 days of consistently posting Jojo, the creator I talked about before, he went from 1000 to 10,000 followers in just 47 days. Jojo posted like 200 times during this period. He made it so quick that you can genuinely master the skill of content creation in just 90 days and get your first 10K followers. And at that point is when you can actually start monetizing from your content. So Jojo also got a hundred sales or $4,000 on his guitar course in those 30 days, as he was growing his personal brand from 1K to 10K followers.</p><p><span class="ts">[00:05:47]</span> And even if you aren&#x27;t selling directly through your personal brand or through your Instagram, because I know a lot of you guys don&#x27;t have a product to sell yet, don&#x27;t have a business to sell yet, that is okay. Andrew did not have a product to sell and he just applied to one of the opportunities from our brand partnerships in our discord server. And in two weeks went from zero experience in UGC to making $4,000. And he ended up hitting a 12K month in his first month, creating content for other brands in this opportunity known as UGC, which if you&#x27;re curious is a super untapped opportunity where so many brands, apps are looking for creators to literally just make content for them. These businesses with millions in funding and millions in marketing budget are looking to pay creators tens of thousands of those dollars just to make viral content on TikTok and Instagram.</p><p><span class="ts">[00:06:33]</span> And the craziest part of building this skill set and the craziest part of building this skill set and monetizing it is that it doesn&#x27;t allow you to just get paid by brands to make videos for them. It can even help you land literal job opportunities when you&#x27;re literally just three or four months into content creation. This is what happened with Andrew. Since he started UGC just two months ago, he went from zero to 10K a month. And now he&#x27;s literally getting CMO job offers from his skill of content creation that he scaled up in literally just two months. The job offers that people are offering to pay him as a college student are between a hundred thousand a year and $250,000 a year. Most people pursuing marketing degrees in our age are getting cooked by the job market and they won&#x27;t even touch six figure salaries until they&#x27;re five years in this is the power of grinding content creation.</p><p><span class="ts">[00:07:20]</span> And by day 150, I think you should set a very realistic goal of making five K a month with your content creation. As long as you take the first step and you post your first video, then you make it a habit, then you improve your videos 1% every day, focusing on the scripting, focus on the editing, focus on the hook, focusing on how you&#x27;re showing up on camera, all of these things that you can improve 1% every day once you treat content like a skill. So now that you actually understand the roadmap that has helped all of these creators go viral and actually start building their online income with content creation, if we parted today, do you see yourself crushing your creator goals because you have two options. Once you click off of this video, you can try it alone. You&#x27;ll have lonely nights pushing against judgment. You won&#x27;t have content direction and you&#x27;ll be burning out trying to balance all of it.</p><p><span class="ts">[00:08:05]</span> And I know this because I spent five years making these mistakes before turning content creation into an actual income. So you can try this lonely option, or you can join the best creator community on the planet today and learn from experienced creators in live weekly calls. And this is the kind of community and program that I wish I had access to even just two or three years ago, when I was first starting out in this journey, when I was so lost, not knowing what to post, what direction to take my personal brand and my content every single day. And that&#x27;s why I&#x27;ve created Content Academy, a community where you can learn from the most experienced and dedicated creators in live weekly calls, where you can hop in and ask your questions to experts like our monetization coach, Gabe, who went from literally zero followers a year ago to making a hundred K a month with his agency just a year later with his niche personal brand or prosper, who literally grew from 3000 to 370,000 followers in a single year on Instagram or Sam who specializes in content and UGC, and he helps train the best UGC creators.</p><p><span class="ts">[00:09:05]</span> He grew from 1000 to a hundred thousand followers in 30 days on Instagram. And you can also hop on live calls with me. And I&#x27;ve also grown three accounts on TikTok to over a hundred thousand followers across multiple different niches. This is my comedy account. This is my personal development account. This is my social media advice account. And I&#x27;ve been creating content now for five years and I&#x27;ve distilled everything I&#x27;ve learned into this one single community where we have many more secret tools and sauce used by the top 1% of creators. And if you&#x27;re interested and want to 10 X your creator growth and learn all of these secrets and join the best creator community on the planet, just book a demo call below. So that being said, these are the four steps to go from a beginner to making your first dollar online with content creation. And I want to ask you, are you going to partake in day one or put it off for one day?</p></div></details><h2 class="sec">Kayvon Jafarzadeh testimonial, 1m 27s</h2><details class="tr"><summary>Kayvon Jafarzadeh testimonial<span class="meta">00:01:27 · 398 words</span></summary><div class="body"><p><span class="ts">[00:00:00]</span> - What&#x27;s going on? My name is Kayvon or Kayvon.ai and I started making content a little over a month ago. I joined the Content Academy about two weeks ago and since then, my content has completely taken off. I went from 400 followers to over 80,000 in two weeks. My videos have done just about 10 million in views and my AI community grew from 180 people to now over 14,000 members. On top of that, I just signed my first $5,000 a month brand deal and I&#x27;m in talks with two more partners right now. Before I joined the Academy, my biggest struggle was definitely accountability. I knew I needed to post consistently, but I didn&#x27;t really have that push to like show up every day and kind of just commit myself fully. But being in a community surrounded around people chasing the same goals really gave me that drive. My favorite part of the Academy is definitely the coaching. There are real creators in the Academy giving you practical advice that you can apply to your content immediately. It was about two weeks ago and I joined the welcome call and I remember just sitting there mostly listening and I wasn&#x27;t really talking too much.</p><p><span class="ts">[00:00:47]</span> I remember a lot of other people just asking prosper questions and one of his answers was, as long as you&#x27;re posting every single day consistently and getting 1% better every time you post, there&#x27;s no way that you&#x27;re not gonna gain traction soon enough. This mindset really shifted the way I approached creating content. And I&#x27;ve posted every single day since then. And another call with Gabe about monetization really helped me out a lot too. I was growing really fast. Brands were reaching out to me. I didn&#x27;t know what to do and how to monetize what was growing so fast. And Gabe really helped me out, giving me ideas on how to really position myself for certain brand deals and how to talk to certain companies, which was a game changer. Honestly, the Content Academy has given me the tools and the accountability to grow at a rate I didn&#x27;t even think was possible this fast. So shout out Mino, Prosper, and Gabe. This is actually insane. I&#x27;d never thought I would get here this fast and I can&#x27;t wait to see how far this takes me.</p></div></details></section>
+<footer>Captured 6 August 2026. Evidence in <code>~/UNDERGROUND_FUNNELS_SSOT</code>
+and <code>~/Downloads/MINO_LEE_Swipe</code>. Built with the <code>/swipe</code> skill.<br>
+Competitor research. Not for redistribution.</footer></div>
+<div id="lb"><img alt=""><div class="cap"></div></div>
+<script>
+document.addEventListener('click',function(e){
+  if(e.target.tagName==='IMG'&&e.target.closest('figure')){
+    var lb=document.getElementById('lb');
+    lb.querySelector('img').src=e.target.dataset.full||e.target.src;
+    var fc=e.target.closest('figure').querySelector('figcaption');
+    lb.querySelector('.cap').textContent=fc?fc.textContent.trim():'';
+    lb.style.display='flex';
+  } else if(e.target.closest('#lb')){document.getElementById('lb').style.display='none';}
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')document.getElementById('lb').style.display='none';
+});
+function wireSearch(id,sel){
+  var b=document.getElementById(id); if(!b)return;
+  b.addEventListener('input',function(){
+    var q=b.value.toLowerCase();
+    document.querySelectorAll(sel).forEach(function(el){
+      el.style.display = !q || el.textContent.toLowerCase().indexOf(q)>-1 ? '' : 'none';
+    });
+  });
+}
+wireSearch('tsearch','details.tr');
+wireSearch('ssearch','figure.sl');
+</script></body></html>
